@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolosal - Discover</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar"></div>
+    <div class="wrapper">
+        <div class="model">
+            <div class="model-title">
+                <div class="col">
+                    <h1 class="text-14px medium">Your Model</h1>
+                    <div class="divider"></div>
+                    <div class="badge" data-text="TEXT GENERATION"></div>
+                    <div class="badge" data-text="GGUF"></div>
+                </div>
+                <div class="col">
+                    <div class="badge" data-state="success" data-text="HF CONNECTION"></div>
+                    <input class="input-text-md" type="text" placeholder="Search model" id="SearchModel" autocomplete="off">
+                </div>
+            </div>
+            <div class="model-list"></div>
+        </div>
+    </div>
+    <div class="popup select-file" data-popup="FileList">
+        <div class="popup-content">
+            <div class="popup-title">
+                <h1 class="text-14px medium">Files List</h1>
+                <button class="btn-sm-icon btn-outline ClosePopup"><i class="ri-close-line"></i></button>
+            </div>
+            <div class="popup-body">
+                <div class="popup-model-wrapper">
+                    <div class="popup-model-list"></div>
+                </div>
+                <div class="popup-model-action">
+                    <button class="btn-md btn-primary AddModel" data-popup="FormModel">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup form-model" data-popup="FormModel">
+        <div class="popup-content">
+            <div class="popup-title">
+                <h1 class="text-14px medium">Add New Model</h1>
+                <button class="btn-sm-icon btn-outline ClosePopup"><i class="ri-close-line"></i></button>
+            </div>
+            <div class="popup-body">
+                <div class="col-2">
+                    <div class="form-item">
+                        <h2 class="text-12px reguler">Model ID</h2>
+                        <input class="input-text-md" type="text" placeholder="Model ID" id="FormModelId">
+                    </div>
+                    <div class="form-item">
+                        <h2 class="text-12px reguler">Model Type</h2>
+                        <div class="select" data-selected="LLM (Text Generation)" id="FormModelType">
+                            <div class="select-trigger">
+                                <h2 class="text-12px reguler">LLM (Text Generation)</h2>
+                                <i class="ri-arrow-down-s-fill select-icon"></i>
+                            </div>
+                            <div class="select-list">
+                                <div class="select-list-item">
+                                    <h2 class="text-12px reguler">LLM (Text Generation)</h2>
+                                </div>
+                                <div class="select-list-item">
+                                    <h2 class="text-12px reguler">Embedding (Text Vectorization)</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <h2 class="text-12px reguler">Model Path/URL</h2>
+                    <textarea class="input-textarea" placeholder="Model Path/URL" id="FormModelPath"></textarea>
+                </div>
+                <div class="col-3">
+                    <div class="form-item">
+                        <h2 class="text-12px reguler">Inference Engine</h2>
+                        <div class="select" data-selected="llama-cpu" id="FormInferenceEngine">
+                            <div class="select-trigger">
+                                <h2 class="text-12px reguler">llama-cpu</h2>
+                                <i class="ri-arrow-down-s-fill select-icon"></i>
+                            </div>
+                            <div class="select-list">
+                                <div class="select-list-item">
+                                    <h2 class="text-12px reguler">llama-cpu</h2>
+                                </div>
+                                <div class="select-list-item">
+                                    <h2 class="text-12px reguler">llama-gpu</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <h2 class="text-12px reguler">Main GPU ID</h2>
+                        <input class="input-text-md" type="number" value="-1" id="MainGPUId">
+                    </div>
+                    <div class="input-checkbox">
+                        <input type="checkbox" checked id="FormLoadImmediately">
+                        <h2 class="text-14px reguler">Load Immediately</h2>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="col-2">
+                    <div class="form-item">
+                        <h2 class="text-12px reguler">Context Size</h2>
+                        <input class="input-text-md" type="number" placeholder="Context Size" value="4096" id="FormContextSize">
+                    </div>
+                    <div class="form-item">
+                        <h2 class="text-12px reguler">Batch Size</h2>
+                        <input class="input-text-md" type="number" placeholder="Batch Size" value="512" id="FormBatchSize">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-item">
+                        <h2 class="text-12px reguler">GPU Layers</h2>
+                        <input class="input-text-md" type="number" placeholder="GPU Layers" value="0" id="FormGPULayers">
+                    </div>
+                    <div class="form-item">
+                        <h2 class="text-12px reguler">Parallel Sequences</h2>
+                        <input class="input-text-md" type="number" placeholder="Parallel Sequences" value="1" id="FormParallelSequences">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="input-checkbox">
+                        <input type="checkbox" checked id="FormMemoryMapping">
+                        <h2 class="text-14px reguler">Use Memory Mapping</h2>
+                    </div>
+                    <div class="input-checkbox">
+                        <input type="checkbox" checked id="FormPerformWarmup">
+                        <h2 class="text-14px reguler">Perform Warmup</h2>
+                    </div>
+                </div>
+                <button class="btn-md btn-primary SubmitModel">Submit Model</button>
+            </div>
+        </div>
+    </div>
+    <!-- load javascript -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>

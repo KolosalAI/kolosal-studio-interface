@@ -1,0 +1,77 @@
+:root {
+  --color-text: #0D0E0F;
+  --color-subtitle: #878C8C;
+  --color-stroke: #E6E6E6;
+  --color-stroke-alt: #DCDCDC;
+  --color-neutral: #FFFFFF;
+  --color-background: #F7F8F7;
+  --color-information: #0066F5;
+  --color-success: #3ABC3F;
+  --color-warning: #FFA931;
+  --color-danger: #FF3131;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-background);
+  background-image: radial-gradient(var(--color-stroke) 1px, transparent 1px);
+  background-size: 16px 16px;
+  min-height: 100dvh;
+  padding: 24px;
+}
+body p {
+  color: var(--color-subtitle);
+}
+body a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 24px;
+  padding: 20px;
+  background-color: var(--color-neutral);
+  max-width: 360px;
+  width: 100%;
+  border-radius: 12px;
+  min-height: 388px;
+}
+.form button {
+  width: 100%;
+}
+
+.form-title p {
+  color: var(--color-subtitle);
+  margin-top: 2px;
+}
+
+.form-divider {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+.form-divider p {
+  color: var(--color-subtitle);
+}
+.form-divider .rectangle {
+  border-bottom: 1px dashed var(--color-stroke);
+  flex: 1 0 0;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 4px;
+}
