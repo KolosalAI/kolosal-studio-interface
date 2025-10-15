@@ -54,10 +54,10 @@ body {
             width: 32px;
             @include flex(row, center, center);
             border-radius: 8px;
-            background-color: #FFF3E2;
+            background-color: #E6F0FE;
 
             i {
-                color: var(--color-warning);
+                color: var(--color-information);
             }
         }
     }
@@ -95,6 +95,7 @@ body {
         background-color: var(--color-background);
         padding: 8px 12px;
         border-radius: 8px;
+        color: var(--color-subtitle);
     }
 }
 

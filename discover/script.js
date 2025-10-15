@@ -133,7 +133,7 @@ async function ModelList() {
             {
                 method: "GET",
                 headers: {
-                    "Authorization": "Bearer",
+                    "Authorization": "Bearer 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",
                     "Accept": "application/json"
                 }
             }
@@ -162,16 +162,13 @@ async function ModelList() {
 
     fetchBatch();
 
-    const wrapper = document.querySelector(".wrapper");
-    if (wrapper) {
-        wrapper.addEventListener("scroll", () => {
-            if (wrapper.scrollTop + wrapper.clientHeight >= wrapper.scrollHeight - 10) {
-                if (!loading && !finished) {
-                    fetchBatch();
-                }
+    container.addEventListener("scroll", () => {
+        if (container.scrollTop + container.clientHeight >= container.scrollHeight - 10) {
+            if (!loading && !finished) {
+                fetchBatch();
             }
-        });
-    }
+        }
+    });
 
     return { renderModels, container };
 }
@@ -204,7 +201,7 @@ async function SearchModel() {
                 {
                     method: "GET",
                     headers: {
-                        "Authorization": "Bearer",
+                        "Authorization": "Bearer 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",
                         "Accept": "application/json"
                     }
                 }
@@ -351,7 +348,7 @@ function CheckHFStatus() {
     fetch("https://huggingface.co/api/models?limit=1", {
         method: "GET",
         headers: {
-            "Authorization": "Bearer",
+            "Authorization": "Bearer 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",
             "Accept": "application/json"
         }
     })

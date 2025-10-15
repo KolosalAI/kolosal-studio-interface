@@ -19,16 +19,21 @@ body {
 }
 body .wrapper {
   flex: 1 0 0;
-  padding: 32px;
+  padding: 24px;
   opacity: 0;
   animation: opacity 0.5s ease forwards;
   animation-delay: 0.2s;
   height: 100dvh;
-  overflow-y: scroll;
 }
 
 .model {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .model-title {
@@ -63,6 +68,12 @@ body .wrapper {
   gap: 8px;
   row-gap: 8px;
   margin-top: 24px;
+  padding: 8px;
+  background-color: var(--color-background);
+  flex: 1 0 0;
+  overflow: scroll;
+  border-radius: 12px;
+  border: 1px solid var(--color-stroke);
 }
 
 .model-list-item {
@@ -72,7 +83,7 @@ body .wrapper {
   align-items: stretch;
   gap: 24px;
   padding: 20px;
-  background-color: var(--color-background);
+  background-color: var(--color-neutral);
   border-radius: 8px;
 }
 .model-list-item .model-name {
@@ -146,6 +157,11 @@ body .wrapper {
   padding: 8px;
   max-height: 400px;
   overflow-y: auto;
+  padding: 8px;
+  background-color: var(--color-background);
+  border-radius: 12px;
+  border: 1px solid var(--color-stroke);
+  height: 100%;
 }
 .popup-model-list .file-item {
   display: flex;
@@ -154,7 +170,7 @@ body .wrapper {
   align-items: stretch;
   gap: 8px;
   padding: 8px 16px;
-  background-color: var(--color-background);
+  background-color: var(--color-neutral);
   border-radius: 8px;
   cursor: pointer;
 }
