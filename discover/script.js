@@ -122,13 +122,13 @@ async function ModelList() {
     let loading = false;
     let finished = false;
 
-    async function fetchBatch() {
+    function fetchBatch() {
         if (loading || finished) return;
         loading = true;
 
         SkeletonModel(container, 8);
 
-        const response = await fetch(
+        fetch(
             `https://huggingface.co/api/models?filter=gguf&sort=trendingScore&limit=${batchSize}&skip=${skip}&full=true`,
             {
                 method: "GET",
@@ -137,20 +137,27 @@ async function ModelList() {
                     "Accept": "application/json"
                 }
             }
-        );
-        const data = await response.json();
+        )
+        .then(response => response.json())
+        .then(data => {
+            const skeletons = container.querySelectorAll(".model-list-loading");
+            skeletons.forEach(skeleton => skeleton.remove());
 
-        const skeletons = container.querySelectorAll(".model-list-loading");
-        skeletons.forEach(skeleton => skeleton.remove());
+            renderModels(data);
+            Popup();
 
-        renderModels(data);
-        Popup();
-
-        if (data.length < batchSize) {
-            finished = true;
-        }
-        skip += batchSize;
-        loading = false;
+            if (data.length < batchSize) {
+                finished = true;
+            }
+            skip += batchSize;
+            loading = false;
+        })
+        .catch(error => {
+            const skeletons = container.querySelectorAll(".model-list-loading");
+            skeletons.forEach(skeleton => skeleton.remove());
+            container.innerHTML = `<p class="mono-12px reguler">Please try again</p>`;
+            loading = false;
+        });
     }
 
     fetchBatch();
@@ -337,10 +344,40 @@ async function SubmitModel() {
     });
 }
 
+function CheckHFStatus() {
+    const hfStatus = document.getElementById("HFStatus");
+    if (!hfStatus) return;
+
+    fetch("https://huggingface.co/api/models?limit=1", {
+        method: "GET",
+        headers: {
+            "Authorization": "Bearer",
+            "Accept": "application/json"
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            hfStatus.dataset.state = "success";
+            hfStatus.dataset.text = "CONNECTED";
+            Badge();
+        } else {
+            hfStatus.dataset.state = "error";
+            hfStatus.dataset.text = "DISCONNECTED";
+            Badge();
+        }
+    })
+    .catch(() => {
+        hfStatus.dataset.state = "error";
+        hfStatus.dataset.text = "DISCONNECTED";
+        Badge();
+    });
+}
+
 HeadInitiate();
 Sidebar();
 Select();
 Badge();
+CheckHFStatus();
 ModelList();
 SearchModel();
 SubmitModel();

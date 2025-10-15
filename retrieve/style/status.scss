@@ -54,10 +54,10 @@ body {
             width: 32px;
             @include flex(row, center, center);
             border-radius: 8px;
-            background-color: var(--color-background);
+            background-color: #FFF3E2;
 
             i {
-                color: var(--color-subtitle);
+                color: var(--color-warning);
             }
         }
     }
