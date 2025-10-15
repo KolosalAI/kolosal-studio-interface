@@ -42,7 +42,7 @@ body {
     padding: 20px;
     background-color: var(--color-neutral);
     border-radius: 12px;
-    border: 1px solid var(--color-stroke);
+    box-shadow: 0px 2px 8px -4px rgb(0, 0, 0, 0.2);
 
     .title {
         @include flex(row, flex-start, center);
@@ -113,6 +113,7 @@ body {
     border-radius: 12px;
     overflow: hidden;
     height: 172px;
+    box-shadow: 0px 2px 8px -4px rgb(0, 0, 0, 0.2);
 
     img {
         flex: 1 0 0;

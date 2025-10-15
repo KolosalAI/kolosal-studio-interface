@@ -227,6 +227,9 @@ body::-webkit-scrollbar {
   height: 56px;
   border-bottom: 1px solid var(--color-stroke);
 }
+.sidebar-logo img {
+  height: 28px;
+}
 
 .sidebar-menu {
   display: flex;
@@ -559,6 +562,7 @@ body::-webkit-scrollbar {
   background-color: var(--color-neutral);
   color: var(--color-text);
   font-weight: 500;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.15);
 }
 
 .select {
@@ -711,7 +715,6 @@ body::-webkit-scrollbar {
 .input-textarea {
   width: 100%;
   color: var(--color-subtitle);
-  background-color: var(--color-background);
   border: 1px solid var(--color-stroke);
   resize: none;
   min-height: 104px;
@@ -744,7 +747,6 @@ body::-webkit-scrollbar {
   align-items: center;
   border: 1px solid var(--color-stroke);
   outline: none;
-  background-color: var(--color-background);
   width: 100%;
   border-radius: 8px;
   color: var(--color-text);
@@ -779,7 +781,6 @@ body::-webkit-scrollbar {
   align-items: center;
   border: 1px solid var(--color-stroke);
   outline: none;
-  background-color: var(--color-background);
   width: 100%;
   border-radius: 8px;
   color: var(--color-text);

@@ -46,13 +46,19 @@ body {
 
 .model-list {
     @include flex(column);
-    gap: 8px;
+    gap: 6px;
+    padding: 8px;
+    background-color: var(--color-background);
+    flex: 1 0 0;
+    border-radius: 12px;
+    border: 1px solid var(--color-stroke);
+    overflow-y: scroll;
 }
 
 .model-list-item {
     @include flex(row, space-between, center);    
     padding: 12px 16px;
-    background-color: var(--color-background);
+    background-color: var(--color-neutral);
     border-radius: 8px;
     cursor: pointer;
 

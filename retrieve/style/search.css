@@ -38,6 +38,7 @@ body .wrapper {
   animation-delay: 0.3s;
   height: calc(100dvh - 24px);
   overflow-y: scroll;
+  border: 1px solid var(--color-stroke);
 }
 
 .content-title {
@@ -63,6 +64,7 @@ body .wrapper {
   padding: 20px;
   background-color: var(--color-neutral);
   border-radius: 12px;
+  box-shadow: 0px 2px 8px -4px rgba(0, 0, 0, 0.2);
 }
 .content-form button {
   width: 100%;

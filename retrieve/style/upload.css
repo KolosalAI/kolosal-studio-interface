@@ -67,7 +67,7 @@ body .wrapper {
   justify-content: flex-start;
   align-items: stretch;
   gap: 24px;
-  border: 1px solid var(--color-stroke);
+  box-shadow: 0px 2px 8px -4px rgba(0, 0, 0, 0.2);
 }
 .content-form .title {
   display: flex;
@@ -86,6 +86,9 @@ body .wrapper {
   align-items: center;
   border-radius: 8px;
   background-color: var(--color-background);
+}
+.content-form .title .title-icon i {
+  color: var(--color-subtitle);
 }
 .content-form .document-list {
   display: flex;
@@ -130,9 +133,6 @@ body .wrapper {
   justify-content: flex-start;
   align-items: stretch;
   gap: 4px;
-}
-.content-form-list .form-item .select-trigger {
-  background-color: var(--color-background) !important;
 }
 
 .content-preview {

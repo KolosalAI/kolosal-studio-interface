@@ -48,7 +48,7 @@ body {
     width: 100%;
     @include flex(column);
     gap: 24px;
-    border: 1px solid var(--color-stroke);
+    box-shadow: 0px 2px 8px -4px rgb(0, 0, 0, 0.2);
 
     .title {
         @include flex(row, flex-start, center);
@@ -61,6 +61,10 @@ body {
             @include flex(row, center, center);
             border-radius: 8px;
             background-color: var(--color-background);
+
+            i {
+                color: var(--color-subtitle);
+            }
         }
     }
 
@@ -100,10 +104,6 @@ body {
     .form-item {
         @include flex(column);
         gap: 4px;
-
-        .select-trigger {
-            background-color: var(--color-background) !important;
-        }
     }
 }
 

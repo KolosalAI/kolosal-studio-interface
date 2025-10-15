@@ -40,7 +40,6 @@
 .input-textarea {
     width: 100%;
     color: var(--color-subtitle);
-    background-color: var(--color-background);
     border: 1px solid var(--color-stroke);
     resize: none;
     min-height: 104px;
@@ -71,7 +70,6 @@
     @include flex(row, flex-start, center);
     border: 1px solid var(--color-stroke);
     outline: none;
-    background-color: var(--color-background);
     width: 100%;
     border-radius: 8px;
     color: var(--color-text);
@@ -101,7 +99,6 @@
     @include flex(row, flex-start, center);
     border: 1px solid var(--color-stroke);
     outline: none;
-    background-color: var(--color-background);
     width: 100%;
     border-radius: 8px;
     color: var(--color-text);
